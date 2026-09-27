@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Team from './pages/Team'
+import Faculty from './pages/Faculty'
 import Resources from './pages/Resources'
 import Internships from './pages/Internships'
 import Projects from './pages/Projects'
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/team/:slug" element={<Faculty />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/internships" element={<Internships />} />
             <Route path="/projects" element={<Projects />} />

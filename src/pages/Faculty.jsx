@@ -36,7 +36,7 @@ export default function Faculty() {
       <div className="max-w-6xl mx-auto py-8 px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-navy-900 lg:sticky lg:top-24">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-navy-900 lg:sticky lg:top-6">
               <div className="p-6 text-center">
                 <img
                   src={person.photo}

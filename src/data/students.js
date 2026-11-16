@@ -1,6 +1,11 @@
 // Student profiles (source: IEDC Responses form). Photos are picked up automatically from
 // src/assets/team/<slug>.(jpg|jpeg|png|webp); if none exists the card shows initials.
 export const students = {
+  'Unmilan Das': {
+    slug: 'unmilan-das',
+    email: 'unmidas06@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/unmilandas',
+  },
   'AHAANA BHATTACHARYA': {
     slug: 'ahaana-bhattacharya',
     email: 'ahaana.bhattacharya07@gmail.com',

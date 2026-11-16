@@ -60,35 +60,34 @@ const gradientFor = (name) => {
   return gradients[h % gradients.length]
 }
 
-function MemberCard({ name }) {
+function MemberCard({ name, role }) {
   const profile = profileFor(name)
   const linkCls =
-    'flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue transition-colors hover:bg-brand-blue hover:text-white'
+    'flex h-8 w-8 items-center justify-center rounded-full bg-white text-brand-blue shadow-sm transition-colors hover:bg-brand-blue hover:text-white'
   return (
-    <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand-blue/40 hover:shadow-xl">
-      <div className="aspect-[4/5] w-full overflow-hidden bg-slate-100">
-        {profile?.photo ? (
-          <img
-            src={profile.photo}
-            alt={name}
-            loading="lazy"
-            className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-          />
-        ) : (
-          <div
-            className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${gradientFor(
-              name,
-            )} text-5xl font-bold tracking-wide text-white`}
-            aria-hidden="true"
-          >
-            {initials(name)}
-          </div>
-        )}
-      </div>
-      <div className="flex items-center justify-between gap-3 p-4">
-        <h4 className="min-w-0 text-[15px] font-bold leading-snug text-navy-900">{name}</h4>
+    <div className="flex gap-5 rounded-2xl bg-sky-50 p-5 transition-shadow hover:shadow-md">
+      {profile?.photo ? (
+        <img
+          src={profile.photo}
+          alt={name}
+          loading="lazy"
+          className="h-32 w-28 shrink-0 rounded-xl object-cover object-top sm:h-36 sm:w-32"
+        />
+      ) : (
+        <div
+          className={`flex h-32 w-28 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${gradientFor(
+            name,
+          )} text-4xl font-bold tracking-wide text-white sm:h-36 sm:w-32`}
+          aria-hidden="true"
+        >
+          {initials(name)}
+        </div>
+      )}
+      <div className="flex min-w-0 flex-col justify-center">
+        <h4 className="font-bold leading-snug text-navy-900">{name}</h4>
+        <p className="mt-1 text-xs text-slate-500">{role}</p>
         {profile && (
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="mt-3 flex items-center gap-2">
             <a
               href={`mailto:${profile.email}`}
               title={profile.email}
@@ -135,9 +134,9 @@ function TeamGroup({ team }) {
           <p className="text-sm text-slate-500">{team.blurb}</p>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {team.members.map((name) => (
-          <MemberCard key={`${team.key}-${name}`} name={name} />
+          <MemberCard key={`${team.key}-${name}`} name={name} role={team.label} />
         ))}
       </div>
     </div>
